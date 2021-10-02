@@ -1,14 +1,14 @@
-const { merge } = require("webpack-merge");
+const { merge } = require('webpack-merge');
 const path = require('path');
-const singleSpaDefaults = require("webpack-config-single-spa");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+const singleSpaDefaults = require('webpack-config-single-spa');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (webpackConfigEnv, argv) => {
-  const orgName = "ft";
+  const orgName = 'ft';
   const defaultConfig = singleSpaDefaults({
     orgName,
-    projectName: "backoffice-root",
+    projectName: 'backoffice-root',
     webpackConfigEnv,
     argv,
     disableHtmlGeneration: true,
@@ -19,17 +19,15 @@ module.exports = (webpackConfigEnv, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         inject: false,
-        template: "src/index.ejs",
+        template: 'src/index.ejs',
         templateParameters: {
           isLocal: webpackConfigEnv && webpackConfigEnv.isLocal,
           orgName,
         },
       }),
       new CopyWebpackPlugin({
-        patterns: [
-          { from: "src/assets", to: "src/assets" }
-        ],
-      })
+        patterns: [{ from: 'src/assets', to: 'src/assets' }],
+      }),
     ],
   });
 };

@@ -1,43 +1,42 @@
-
-import { registerApplication, start } from "single-spa";
-import * as isActive from "./activity-functions";
+import { registerApplication, start } from 'single-spa';
+import * as isActive from './activity-functions';
 
 registerApplication({
-  name: "@ft/backoffice-nav",
+  name: '@ft/backoffice-nav',
   app: () =>
     import(
       /* webpackIgnore: true */
-      "http://localhost:3001/src/main.js"
+      'http://localhost:3001/src/main.js'
     ),
   activeWhen: isActive.navbar,
 });
 
 registerApplication({
-  name: "@ft/backoffice-login",
+  name: '@ft/backoffice-login',
   app: () =>
     import(
       /* webpackIgnore: true */
-      "http://localhost:3002/src/main.js"
+      'http://localhost:3002/src/main.js'
     ),
   activeWhen: isActive.login,
 });
 
 registerApplication({
-  name: "@ft/backoffice-home",
+  name: '@ft/backoffice-home',
   app: () =>
     import(
       /* webpackIgnore: true */
-      "http://localhost:3003/src/main.js"
+      'http://localhost:3003/src/main.js'
     ),
   activeWhen: isActive.home,
 });
 
 registerApplication({
-  name: "@ft/backoffice-about",
+  name: '@ft/backoffice-about',
   app: () =>
     import(
       /* webpackIgnore: true */
-      "http://localhost:3004/src/main.js"
+      'http://localhost:3004/src/main.js'
     ),
   activeWhen: isActive.about,
 });
