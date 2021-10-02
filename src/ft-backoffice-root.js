@@ -16,7 +16,7 @@ registerApplication({
   app: () =>
     import(
       /* webpackIgnore: true */
-      'http://localhost:3002/src/main.js'
+      'https://thedoctor46super.github.io/mf-backoffice-login/main.js'
     ),
   activeWhen: isActive.login,
 });
