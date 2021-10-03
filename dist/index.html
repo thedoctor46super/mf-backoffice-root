@@ -3,8 +3,18 @@
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "@ft/backoffice-root": "https://thedoctor46super.github.io/mf-backoffice-root/ft-backoffice-root.js"
       }
-    }</script><script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script><script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head><body><main></main><script>System.import('@ft/backoffice-root');
-    // (async function() {
+    }</script><script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script><script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head><body><main></main><script>// workaround for vue 3 loading issues
+    window.devtoolsFormatters = [];
+    window.__VUE__ = true;
+    window.__VUE_HMR_RUNTIME__ = {};
+
+    System.import(
+      "https://cdn.jsdelivr.net/npm/vue@3.0.2/dist/vue.runtime.global.js"
+    ).then((vue) => {
+      console.log("vue 3", vue);
+
+      System.import('@ft/backoffice-root');
+    });</script><script>// (async function() {
     //   await System.import('vue');
     //   await System.import('vue-router');
     //   await System.import('single-spa');
