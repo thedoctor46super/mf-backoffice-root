@@ -32,12 +32,15 @@
   <script type="systemjs-importmap">
     {
       "imports": {
+        "vue": "https://cdn.jsdelivr.net/npm/vue@3.2.19/dist/vue.global.min.js",
+        "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@4.0.1/dist/vue-router.global.min.js",
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "@ft/backoffice-root": "https://thedoctor46super.github.io/mf-backoffice-root/ft-backoffice-root.js"
       }
     }
   </script>
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.2.19/dist/vue.global.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-router@4.0.1/dist/vue-router.global.min.js"></script>
 
   <!-- Add your organization's prod import map URL to this script's src  -->
   <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
@@ -52,17 +55,29 @@
   </script>
   <% } %>
 
-  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://thedoctor46super.github.io/mf-backoffice-login/style.css" rel="stylesheet">
+  <link href="https://thedoctor46super.github.io/mf-backoffice-home/style.css" rel="stylesheet">
+  <link href="https://thedoctor46super.github.io/mf-backoffice-about/style.css" rel="stylesheet">
+  <link href="https://thedoctor46super.github.io/mf-backoffice-nav/style.css" rel="stylesheet">
 </head>
 <body>
   <main></main>
   <script>
+    Object.getPrototypeOf(System).firstGlobalProp = true;
+    System.set(System.resolve('vue'), window.Vue);
+    System.set(System.resolve('vue-router'), window.VueRouter);
+    window.vue = window.Vue;
+
     System.import('@ft/backoffice-root');
   </script>
+  <!-- <script>
+    System.import('@ft/backoffice-root');
+  </script> -->
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
 </html>

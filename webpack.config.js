@@ -29,5 +29,6 @@ module.exports = (webpackConfigEnv, argv) => {
         patterns: [{ from: 'src/assets', to: 'assets' }],
       }),
     ],
+    externals: ['vue', 'vue-router', 'single-spa', /^@ft\/.+/],
   });
 };
